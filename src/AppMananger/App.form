@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="AppMananger.App">
+  <grid id="27dc6" binding="HeadPanel" layout-manager="GridLayoutManager" row-count="7" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="674" height="558"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="12f3d" class="javax.swing.JButton" binding="moveDownButton">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Move Down"/>
+        </properties>
+      </component>
+      <component id="87dfb" class="javax.swing.JButton" binding="removeButton">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <foreground color="-4473925"/>
+          <hideActionText value="false"/>
+          <text value="Remove"/>
+        </properties>
+      </component>
+      <component id="81ca5" class="javax.swing.JButton" binding="moveUpButton">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Move Up"/>
+        </properties>
+      </component>
+      <component id="646c3" class="javax.swing.JButton" binding="createCircleButton">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-12828863"/>
+          <horizontalTextPosition value="11"/>
+          <text value="Create Circle"/>
+        </properties>
+      </component>
+      <component id="c06bc" class="javax.swing.JButton" binding="createRectangleButton">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Create Rectangle"/>
+        </properties>
+      </component>
+      <component id="b953a" class="javax.swing.JButton" binding="createTriangleButton">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Create Triangle"/>
+        </properties>
+      </component>
+      <component id="aace8" class="javax.swing.JButton" binding="createSquareButton">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Create Square"/>
+        </properties>
+      </component>
+      <component id="9b4c" class="javax.swing.JList" binding="shapes">
+        <constraints>
+          <grid row="0" column="0" row-span="7" col-span="1" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
+          </grid>
+        </constraints>
+        <properties>
+          <toolTipText value=""/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
