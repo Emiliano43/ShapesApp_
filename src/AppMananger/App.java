@@ -89,6 +89,14 @@ public class App extends JDialog{
 
             Shape temp = list.set(index + 1, list.get(index));
             list.set(index, temp);
+
+            List<Shape> updatedShapes = new ArrayList<>();
+            Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
+            try {
+                source.putToFile(updatedShapes);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
         });
 
         moveUpButton.addActionListener(e -> {
@@ -99,10 +107,26 @@ public class App extends JDialog{
 
             Shape temp = list.set(index - 1, list.get(index));
             list.set(index, temp);
+
+            List<Shape> updatedShapes = new ArrayList<>();
+            Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
+            try {
+                source.putToFile(updatedShapes);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
         });
 
         removeButton.addActionListener(e -> {
             list.remove(shapes.getSelectedIndex());
+
+            List<Shape> updatedShapes = new ArrayList<>();
+            Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
+            try {
+                source.putToFile(updatedShapes);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
         });
 
 
@@ -110,18 +134,43 @@ public class App extends JDialog{
             CreateCircleWindow auxiliaryFrame = new CreateCircleWindow(list::addElement,
                     getX() + getWidth() / 5, getY() + getHeight() / 4);
             auxiliaryFrame.setVisible(true);
+
+            List<Shape> updatedShapes = new ArrayList<>();
+            Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
+            try {
+                source.putToFile(updatedShapes);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+
         });
 
         createSquareButton.addActionListener(e -> {
             CreateSquareWindow auxiliaryFrame = new CreateSquareWindow(list::addElement,
                     getX() + getWidth() / 5, getY() + getHeight() / 4);
             auxiliaryFrame.setVisible(true);
+
+            List<Shape> updatedShapes = new ArrayList<>();
+            Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
+            try {
+                source.putToFile(updatedShapes);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
         });
 
         createRectangleButton.addActionListener(e -> {
             CreateRectangleWindow auxiliaryFrame = new CreateRectangleWindow(list::addElement,
                     getX() + getWidth() / 5, getY() + getHeight() / 4);
             auxiliaryFrame.setVisible(true);
+
+            List<Shape> updatedShapes = new ArrayList<>();
+            Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
+            try {
+                source.putToFile(updatedShapes);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
         });
 
         createTriangleButton.addActionListener(e -> {
@@ -129,11 +178,18 @@ public class App extends JDialog{
                     getX() + getWidth() / 5, getY() + getHeight() / 4);
 
             auxiliaryFrame.setVisible(true);
+
+            List<Shape> updatedShapes = new ArrayList<>();
+            Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
+            try {
+                source.putToFile(updatedShapes);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
         });
 
         addWindowListener(new WindowAdapter() {
 
-            @Override
             public void windowClosing(WindowEvent e) {
                 List<Shape> updatedShapes = new ArrayList<>();
                 Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
@@ -148,5 +204,4 @@ public class App extends JDialog{
             }
         });
     }
-
 }

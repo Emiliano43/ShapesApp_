@@ -19,6 +19,7 @@ public class CreateCircleWindow extends JDialog{
 
         setTitle("Create Circle");
         setBounds(x, y, 300, 200);
+
         applyButton.setBackground(Color.GREEN);
         cancelButton.setBackground(Color.RED);
 

@@ -25,7 +25,7 @@ public class OutputFileInterface implements JsonSerializer<Shape>, JsonDeseriali
         return context.deserialize(jsonObject.get(VALUE), c);
     }
 
-    public Class getObjectClass(String className) {
+    Class getObjectClass(String className) {
 
         try {
             return Class.forName(className);
