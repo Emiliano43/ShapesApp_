@@ -10,6 +10,7 @@ import javax.swing.event.ListDataListener;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.event.WindowFocusListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -90,12 +91,16 @@ public class App extends JDialog{
             Shape temp = list.set(index + 1, list.get(index));
             list.set(index, temp);
 
-            List<Shape> updatedShapes = new ArrayList<>();
-            Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
             try {
+                List<Shape> updatedShapes = new ArrayList<>();
+                Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
                 source.putToFile(updatedShapes);
             } catch (IOException ioException) {
-                ioException.printStackTrace();
+                JOptionPane frame = new JOptionPane();
+                JOptionPane.showMessageDialog(frame,
+                        "The data was not saved!",
+                        "Warning",
+                        JOptionPane.WARNING_MESSAGE);
             }
         });
 
@@ -108,24 +113,32 @@ public class App extends JDialog{
             Shape temp = list.set(index - 1, list.get(index));
             list.set(index, temp);
 
-            List<Shape> updatedShapes = new ArrayList<>();
-            Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
             try {
+                List<Shape> updatedShapes = new ArrayList<>();
+                Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
                 source.putToFile(updatedShapes);
             } catch (IOException ioException) {
-                ioException.printStackTrace();
+                JOptionPane frame = new JOptionPane();
+                JOptionPane.showMessageDialog(frame,
+                        "The data was not saved!",
+                        "Warning",
+                        JOptionPane.WARNING_MESSAGE);
             }
         });
 
         removeButton.addActionListener(e -> {
             list.remove(shapes.getSelectedIndex());
 
-            List<Shape> updatedShapes = new ArrayList<>();
-            Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
             try {
+                List<Shape> updatedShapes = new ArrayList<>();
+                Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
                 source.putToFile(updatedShapes);
             } catch (IOException ioException) {
-                ioException.printStackTrace();
+                JOptionPane frame = new JOptionPane();
+                JOptionPane.showMessageDialog(frame,
+                        "The data was not saved!",
+                        "Warning",
+                        JOptionPane.WARNING_MESSAGE);
             }
         });
 
@@ -135,14 +148,17 @@ public class App extends JDialog{
                     getX() + getWidth() / 5, getY() + getHeight() / 4);
             auxiliaryFrame.setVisible(true);
 
-            List<Shape> updatedShapes = new ArrayList<>();
-            Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
             try {
+                List<Shape> updatedShapes = new ArrayList<>();
+                Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
                 source.putToFile(updatedShapes);
             } catch (IOException ioException) {
-                ioException.printStackTrace();
+                JOptionPane frame = new JOptionPane();
+                JOptionPane.showMessageDialog(frame,
+                        "The data was not saved!",
+                        "Warning",
+                        JOptionPane.WARNING_MESSAGE);
             }
-
         });
 
         createSquareButton.addActionListener(e -> {
@@ -150,12 +166,16 @@ public class App extends JDialog{
                     getX() + getWidth() / 5, getY() + getHeight() / 4);
             auxiliaryFrame.setVisible(true);
 
-            List<Shape> updatedShapes = new ArrayList<>();
-            Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
             try {
+                List<Shape> updatedShapes = new ArrayList<>();
+                Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
                 source.putToFile(updatedShapes);
             } catch (IOException ioException) {
-                ioException.printStackTrace();
+                JOptionPane frame = new JOptionPane();
+                JOptionPane.showMessageDialog(frame,
+                        "The data was not saved!",
+                        "Warning",
+                        JOptionPane.WARNING_MESSAGE);
             }
         });
 
@@ -164,12 +184,16 @@ public class App extends JDialog{
                     getX() + getWidth() / 5, getY() + getHeight() / 4);
             auxiliaryFrame.setVisible(true);
 
-            List<Shape> updatedShapes = new ArrayList<>();
-            Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
             try {
+                List<Shape> updatedShapes = new ArrayList<>();
+                Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
                 source.putToFile(updatedShapes);
             } catch (IOException ioException) {
-                ioException.printStackTrace();
+                JOptionPane frame = new JOptionPane();
+                JOptionPane.showMessageDialog(frame,
+                        "The data was not saved!",
+                        "Warning",
+                        JOptionPane.WARNING_MESSAGE);
             }
         });
 
@@ -179,28 +203,38 @@ public class App extends JDialog{
 
             auxiliaryFrame.setVisible(true);
 
-            List<Shape> updatedShapes = new ArrayList<>();
-            Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
             try {
+                List<Shape> updatedShapes = new ArrayList<>();
+                Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
                 source.putToFile(updatedShapes);
             } catch (IOException ioException) {
-                ioException.printStackTrace();
+                JOptionPane frame = new JOptionPane();
+                JOptionPane.showMessageDialog(frame,
+                        "The data was not saved!",
+                        "Warning",
+                        JOptionPane.WARNING_MESSAGE);
             }
         });
 
         addWindowListener(new WindowAdapter() {
 
             public void windowClosing(WindowEvent e) {
-                List<Shape> updatedShapes = new ArrayList<>();
-                Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
-
                 try {
+                    List<Shape> updatedShapes = new ArrayList<>();
+                    Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
                     source.putToFile(updatedShapes);
                 } catch (IOException ioException) {
-                    ioException.printStackTrace();
+                    JOptionPane frame = new JOptionPane(e);
+                    int response = JOptionPane.showConfirmDialog(frame,
+                            "The data was not saved.\n Close anyway?",
+                            "Warning",
+                            JOptionPane.WARNING_MESSAGE);
+                    if (response == JOptionPane.YES_OPTION) {
+                        dispose();
+                    } else if (response == JOptionPane.CANCEL_OPTION || response == JOptionPane.CLOSED_OPTION) {
+                        e.getOppositeWindow().dispose();
+                    }
                 }
-
-                e.getWindow().dispose();
             }
         });
     }
