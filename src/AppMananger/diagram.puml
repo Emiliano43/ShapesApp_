@@ -1,0 +1,85 @@
+@startuml
+class App {
+- HeadPanel : JPanel
+- shapes JList
+- moveDownButton : JButton
+- moveUpButton : JButton
+- removeButton : JButton
+- createCircleButton : JButton
+- createSquareButton : JButton
+- createRectangleButton : JButton
+- createTriangleButton : JButton
+- source : FileOperations<Shape>
+--
++ App()
+}
+
+class CreateCircleWindow {
+- HeadPanel : JPanel
+- cancelButton : JButton
+- applyButton : JButton
+- textField1 : JTextField
+- label : JLabel
+--
++ CreateCircleWindow(OnAddedListener listener, int x, int y)
+}
+
+class CreateRectangleWindow {
+- HeadPanel : JPanel
+- cancelButton : JButton
+- applyButton : JButton
+- textField1 : JTextField
+- textField2 : JTextField
+- label1 : JLabel
+- label2 : JLabel
+--
++ CreateRectangleWindow(OnAddedListener listener, int x, int y)
+}
+
+class CreateSquareWindow {
+- HeadPanel : JPanel
+- cancelButton : JButton
+- applyButton : JButton
+- textField1 : JTextField
+- label : JLabel
+--
++ CreateSquareWindow(OnAddedListener listener, int x, int y)
+}
+
+class CreateTriangleWindow {
+- HeadPanel : JPanel
+- cancelButton : JButton
+- applyButton : JButton
+- textField1 : JTextField
+- textField2 : JTextField
+- textField3 : JTextField
+- label1 : JLabel
+- label2 : JLabel
+- label3 : JLabel
+--
++ CreateTriangleWindow(OnAddedListener listener, int x, int y)
+}
+
+interface FileOperations {
+--
++ putToFile(List<T> list)
++ getFromFile() : List<T>
+}
+
+interface onAddedListener {
+--
++ onAdded(Shape shape)
+}
+
+
+App *-- FileOperations
+CreateCircleWindow o- onAddedListener
+CreateRectangleWindow o- onAddedListener
+CreateTriangleWindow o- onAddedListener
+CreateSquareWindow o- onAddedListener
+CreateCircleWindow *-- App
+CreateTriangleWindow *-- App
+CreateRectangleWindow *-- App
+CreateSquareWindow *-- App
+
+@enduml

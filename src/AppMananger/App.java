@@ -10,7 +10,6 @@ import javax.swing.event.ListDataListener;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowFocusListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -219,11 +218,7 @@ public class App extends JDialog{
         addWindowListener(new WindowAdapter() {
 
             public void windowClosing(WindowEvent e) {
-                try {
-                    List<Shape> updatedShapes = new ArrayList<>();
-                    Arrays.stream(list.toArray()).forEach(element -> updatedShapes.add((Shape) element));
-                    source.putToFile(updatedShapes);
-                } catch (IOException ioException) {
+
                     JOptionPane frame = new JOptionPane(e);
                     int response = JOptionPane.showConfirmDialog(frame,
                             "The data was not saved.\n Close anyway?",
@@ -234,7 +229,7 @@ public class App extends JDialog{
                     } else if (response == JOptionPane.CANCEL_OPTION || response == JOptionPane.CLOSED_OPTION) {
                         e.getOppositeWindow().dispose();
                     }
-                }
+
             }
         });
     }
